@@ -6,7 +6,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://LocalToWorld.gd" type="Script" id=5]
 
-[node name="Main" type="Node2D"]
+[node name="Lecture1" type="Node2D"]
 position = Vector2( 1, 0 )
 
 [node name="Vector" type="Node2D" parent="."]
@@ -38,7 +38,7 @@ texture = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="Object" type="Node2D" parent="LocalToWorld"]
-position = Vector2( 142.555, 329.591 )
+position = Vector2( 148.555, 339.591 )
 rotation = 0.323472
 
 [node name="Point" type="Node2D" parent="LocalToWorld"]
@@ -51,7 +51,7 @@ margin_right = 807.57
 margin_bottom = 606.242
 rect_scale = Vector2( 1.67825, 1.67825 )
 text = "point global coords: (314.713013, 453.325989)
-word_to_local: (202.559433, 62.595844)
+word_to_local: (193.692474, 55.021362)
 local_to_world: (314.713013, 453.325989)
 "
 __meta__ = {
