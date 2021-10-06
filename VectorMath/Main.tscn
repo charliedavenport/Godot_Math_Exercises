@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Vectors.gd" type="Script" id=1]
+[ext_resource path="res://RadialTrigger.gd" type="Script" id=2]
+[ext_resource path="res://LookAtTrigger.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://LocalToWorld.gd" type="Script" id=5]
+
+[node name="Main" type="Node2D"]
+position = Vector2( 1, 0 )
+
+[node name="Vector" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 1 )
+
+[node name="RadialTrigger" type="Node2D" parent="."]
+position = Vector2( 751.394, 181.865 )
+script = ExtResource( 2 )
+radius = 100.0
+
+[node name="LookAtTrigger" type="Node2D" parent="."]
+script = ExtResource( 3 )
+threshold = 0.99
+
+[node name="Target" type="Node2D" parent="LookAtTrigger"]
+position = Vector2( 402.809, 293.843 )
+
+[node name="Player" type="Node2D" parent="LookAtTrigger"]
+position = Vector2( 191.975, 109.378 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="LookAtTrigger/Player"]
+texture = ExtResource( 4 )
+
+[node name="LocalToWorld" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="Object" type="Node2D" parent="LocalToWorld"]
+position = Vector2( 142.555, 329.591 )
+rotation = 0.323472
+
+[node name="Point" type="Node2D" parent="LocalToWorld"]
+position = Vector2( 314.713, 453.326 )
+
+[node name="Label" type="Label" parent="LocalToWorld"]
+margin_left = 509.57
+margin_top = 506.242
+margin_right = 807.57
+margin_bottom = 606.242
+rect_scale = Vector2( 1.67825, 1.67825 )
+text = "point global coords: (314.713013, 453.325989)
+word_to_local: (202.559433, 62.595844)
+local_to_world: (314.713013, 453.325989)
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
