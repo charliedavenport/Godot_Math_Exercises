@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://BouncingLaser.gd" type="Script" id=1]
 [ext_resource path="res://LineRenderer/LineRenderer.tscn" type="PackedScene" id=2]
@@ -23,13 +23,17 @@ albedo_color = Color( 1, 0, 0, 1 )
 flags_unshaded = true
 albedo_color = Color( 0, 1, 0.968627, 1 )
 
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+albedo_color = Color( 0.352941, 0.972549, 0.145098, 1 )
+
 [node name="Lecture2" type="Spatial"]
 
 [node name="BouncingLaser" type="Spatial" parent="."]
 script = ExtResource( 1 )
 
 [node name="Laser" type="Spatial" parent="BouncingLaser"]
-transform = Transform( 0.998947, -0.00549221, -0.0455465, -0.0087432, 0.951819, -0.306535, 0.0450356, 0.30661, 0.950769, 0.203741, 1.29658, -2.69786 )
+transform = Transform( 0.99698, -0.0629681, -0.045437, 0.0598275, 0.995927, -0.0674515, 0.0494992, 0.0645295, 0.996687, -0.0470922, 0.687819, -2.68962 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -40,6 +44,7 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="Sphere" type="MeshInstance" parent="BouncingLaser"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0210047, 0.125496, 0 )
 mesh = SubResource( 2 )
 material/0 = null
 
@@ -55,15 +60,21 @@ material/0 = null
 
 [node name="LaserLine" parent="BouncingLaser" instance=ExtResource( 2 )]
 material_override = SubResource( 4 )
-points = [ Vector3( 0.203741, 1.29658, -2.69786 ), Vector3( 0.10983, 0.664544, -0.737498 ) ]
+points = [ Vector3( -0.0470922, 0.687819, -2.68962 ), Vector3( -0.129436, 0.565579, -0.883359 ), Vector3( -2.93567, 8.14735, -6.76908 ) ]
 startThickness = 0.05
 endThickness = 0.05
 
-[node name="SphereNormalLine" parent="BouncingLaser" instance=ExtResource( 2 )]
+[node name="NormalLine" parent="BouncingLaser" instance=ExtResource( 2 )]
 material_override = SubResource( 6 )
-points = [ Vector3( 0.10983, 0.664544, -0.737498 ), Vector3( 0.216324, 1.35432, -1.45365 ) ]
-startThickness = 0.05
-endThickness = 0.05
+points = [ Vector3( -0.129436, 0.565579, -0.883359 ), Vector3( -0.259894, 1.02355, -1.7627 ) ]
+startThickness = 0.025
+endThickness = 0.025
+
+[node name="TangentLine" parent="BouncingLaser" instance=ExtResource( 2 )]
+material_override = SubResource( 7 )
+points = [ Vector3( -0.129436, 0.565579, -0.883359 ), Vector3( -0.505944, 1.36317, -0.412101 ) ]
+startThickness = 0.025
+endThickness = 0.025
 
 [node name="Camera" type="Camera" parent="BouncingLaser"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44758, 5.69187, -4.31439 )
