@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Lecture2/BouncingLaser.gd" type="Script" id=1]
+[ext_resource path="res://BouncingLaser.gd" type="Script" id=1]
 [ext_resource path="res://LineRenderer/LineRenderer.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CylinderMesh" id=1]
@@ -48,24 +48,24 @@ material/0 = null
 
 [node name="LaserLine" parent="BouncingLaser" instance=ExtResource( 2 )]
 material_override = SubResource( 4 )
-points = [ Vector3( -0.694224, 1.12449, -2.94356 ), Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 1.00051, 1.34543, -2.90182 ), Vector3( 0.94069, 3.15064, -1.328 ), Vector3( -1.77705, 3.34216, -2.20704 ), Vector3( 0.933771, 3.63533, -1.6666 ), Vector3( 0.995351, 2.04013, -3.78332 ), Vector3( -2.0468, 7.89118, -11.3007 ) ]
+points = [ Vector3( -0.694224, 1.12449, -2.94356 ), Vector3( 0.0269234, 0.410448, -0.925126 ), Vector3( 0.998366, 1.33331, -2.89869 ), Vector3( 1.11721, 3.29761, -1.60195 ), Vector3( -1.66094, 3.71392, -2.94888 ), Vector3( 1.44393, 3.5004, -2.0597 ), Vector3( 1.55322, 1.95776, -3.45935 ), Vector3( 7.43878, 10.0305, -3.8963 ) ]
 startThickness = 0.05
 endThickness = 0.05
 
 [node name="NormalLine" parent="BouncingLaser" instance=ExtResource( 2 )]
 material_override = SubResource( 6 )
-points = [ Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 0.0739631, 0.790201, -1.84902 ) ]
+points = [ Vector3( 0.0269234, 0.410448, -0.925126 ), Vector3( 0.0742308, 0.788189, -1.84983 ) ]
 startThickness = 0.025
 endThickness = 0.025
 
 [node name="TangentLine" parent="BouncingLaser" instance=ExtResource( 2 )]
 material_override = SubResource( 7 )
-points = [ Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 1.01745, 0.512173, -0.832882 ) ]
+points = [ Vector3( 0.0269234, 0.410448, -0.925126 ), Vector3( 1.01815, 0.507069, -0.834946 ) ]
 startThickness = 0.025
 endThickness = 0.025
 
 [node name="Camera" type="Camera" parent="BouncingLaser"]
-transform = Transform( -0.28731, 0.460533, -0.839858, 0, 0.876828, 0.480805, 0.957838, 0.13814, -0.251921, -3.51148, 5.69187, -4.10137 )
+transform = Transform( -0.28731, 0.460533, -0.839858, 0, 0.876827, 0.480805, 0.957838, 0.13814, -0.251922, -3.44758, 5.69187, -4.31439 )
 visible = false
 
 [node name="Sphere" type="StaticBody" parent="BouncingLaser"]
@@ -112,7 +112,7 @@ mesh = SubResource( 11 )
 material/0 = null
 
 [node name="Box2" type="StaticBody" parent="BouncingLaser"]
-transform = Transform( -0.967507, 0.118572, 0.223317, -0.0193862, 0.845836, -0.533091, -0.252099, -0.520099, -0.816053, -1.88144, 3.51506, -2.78737 )
+transform = Transform( -0.929461, 0.317662, 0.187597, 0.100223, 0.706801, -0.700277, -0.355045, -0.632079, -0.688781, -1.96358, 3.44532, -2.91952 )
 __meta__ = {
 "_edit_group_": true
 }
