@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://LocalToWorld.gd" type="Script" id=1]
-[ext_resource path="res://LookAtTrigger.gd" type="Script" id=2]
-[ext_resource path="res://RadialTrigger.gd" type="Script" id=3]
-[ext_resource path="res://Vectors.gd" type="Script" id=4]
+[ext_resource path="res://Lecture1/LocalToWorld.gd" type="Script" id=1]
+[ext_resource path="res://Lecture1/LookAtTrigger.gd" type="Script" id=2]
+[ext_resource path="res://Lecture1/RadialTrigger.gd" type="Script" id=3]
+[ext_resource path="res://Lecture1/Vectors.gd" type="Script" id=4]
 [ext_resource path="res://icon.png" type="Texture" id=5]
 
 [node name="Lecture1" type="Node2D"]
@@ -23,10 +23,10 @@ script = ExtResource( 2 )
 threshold = 0.99
 
 [node name="Target" type="Node2D" parent="LookAtTrigger"]
-position = Vector2( 402.809, 293.843 )
+position = Vector2( 438.809, 171.843 )
 
 [node name="Player" type="Node2D" parent="LookAtTrigger"]
-position = Vector2( 191.975, 109.378 )
+position = Vector2( 148.975, 115.378 )
 __meta__ = {
 "_edit_group_": true
 }
