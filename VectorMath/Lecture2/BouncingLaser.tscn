@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Lecture2/BouncingLaser.gd" type="Script" id=1]
-[ext_resource path="res://LineRenderer/LineRenderer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://LineRenderer/LineRenderer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Lecture2/BouncingLaser.gd" type="Script" id=2]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.05
@@ -29,99 +29,96 @@ extents = Vector3( 0.243942, 1, 1 )
 
 [sub_resource type="CubeMesh" id=11]
 
-[node name="Lecture2" type="Spatial"]
-
-[node name="BouncingLaser" type="Spatial" parent="."]
-script = ExtResource( 1 )
+[node name="BouncingLaser" type="Spatial"]
+script = ExtResource( 2 )
 max_bounces = 7
 
-[node name="Laser" type="Spatial" parent="BouncingLaser"]
+[node name="Laser" type="Spatial" parent="."]
 transform = Transform( 0.947215, 0.029866, 0.319204, 0.076694, 0.945633, -0.316061, -0.31129, 0.323859, 0.893428, -0.694224, 1.12449, -2.94356 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="MeshInstance" type="MeshInstance" parent="BouncingLaser/Laser"]
+[node name="MeshInstance" type="MeshInstance" parent="Laser"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
-[node name="LaserLine" parent="BouncingLaser" instance=ExtResource( 2 )]
+[node name="LaserLine" parent="." instance=ExtResource( 1 )]
 material_override = SubResource( 4 )
-points = [ Vector3( -0.694224, 1.12449, -2.94356 ), Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 1.00051, 1.34543, -2.90182 ), Vector3( 0.94069, 3.15064, -1.328 ), Vector3( -1.77705, 3.34216, -2.20704 ), Vector3( 0.933771, 3.63533, -1.6666 ), Vector3( 0.995351, 2.04013, -3.78332 ), Vector3( -2.0468, 7.89118, -11.3007 ) ]
+points = [ Vector3( -0.694224, 1.12449, -2.94356 ), Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 1.00051, 1.34543, -2.90182 ), Vector3( 0.94069, 3.15064, -1.328 ), Vector3( -1.77705, 3.34216, -2.20704 ), Vector3( 0.933788, 3.63532, -1.66661 ), Vector3( 0.995386, 2.04014, -3.78331 ), Vector3( -2.04632, 7.89131, -11.3007 ) ]
 startThickness = 0.05
 endThickness = 0.05
 
-[node name="NormalLine" parent="BouncingLaser" instance=ExtResource( 2 )]
+[node name="NormalLine" parent="." instance=ExtResource( 1 )]
 material_override = SubResource( 6 )
 points = [ Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 0.0739631, 0.790201, -1.84902 ) ]
 startThickness = 0.025
 endThickness = 0.025
 
-[node name="TangentLine" parent="BouncingLaser" instance=ExtResource( 2 )]
+[node name="TangentLine" parent="." instance=ExtResource( 1 )]
 material_override = SubResource( 7 )
 points = [ Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 1.01745, 0.512173, -0.832882 ) ]
 startThickness = 0.025
 endThickness = 0.025
 
-[node name="Camera" type="Camera" parent="BouncingLaser"]
-transform = Transform( -0.28731, 0.460533, -0.839858, 0, 0.876828, 0.480805, 0.957838, 0.13814, -0.251921, -3.51148, 5.69187, -4.10137 )
-visible = false
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.28731, 0.460533, -0.839859, 0, 0.876828, 0.480805, 0.957838, 0.13814, -0.251921, -6.10646, 5.69187, -2.90736 )
 
-[node name="Sphere" type="StaticBody" parent="BouncingLaser"]
+[node name="Sphere" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0191178, 0, 0 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="BouncingLaser/Sphere"]
+[node name="CollisionShape" type="CollisionShape" parent="Sphere"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0335865, 0 )
 shape = SubResource( 8 )
 
-[node name="MeshInstance" type="MeshInstance" parent="BouncingLaser/Sphere"]
+[node name="MeshInstance" type="MeshInstance" parent="Sphere"]
 mesh = SubResource( 9 )
 material/0 = null
 
-[node name="Sphere2" type="StaticBody" parent="BouncingLaser"]
+[node name="Sphere2" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25943, 1.04315, -3.83057 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="BouncingLaser/Sphere2"]
+[node name="CollisionShape" type="CollisionShape" parent="Sphere2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0335865, 0 )
 shape = SubResource( 8 )
 
-[node name="MeshInstance" type="MeshInstance" parent="BouncingLaser/Sphere2"]
+[node name="MeshInstance" type="MeshInstance" parent="Sphere2"]
 mesh = SubResource( 9 )
 material/0 = null
 
-[node name="Box" type="StaticBody" parent="BouncingLaser"]
+[node name="Box" type="StaticBody" parent="."]
 transform = Transform( 0.615533, 0.180269, -0.767217, 0.457222, 0.711235, 0.533941, 0.641925, -0.679447, 0.355365, 1.32376, 3.72731, -1.72605 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="BouncingLaser/Box"]
+[node name="CollisionShape" type="CollisionShape" parent="Box"]
 transform = Transform( 1, 0, 3.72529e-09, -2.98023e-08, 1, -1.49012e-08, -3.72529e-09, -3.35276e-08, 1, 0, 0, 0 )
 shape = SubResource( 10 )
 
-[node name="MeshInstance" type="MeshInstance" parent="BouncingLaser/Box"]
+[node name="MeshInstance" type="MeshInstance" parent="Box"]
 transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 11 )
 material/0 = null
 
-[node name="Box2" type="StaticBody" parent="BouncingLaser"]
+[node name="Box2" type="StaticBody" parent="."]
 transform = Transform( -0.967507, 0.118572, 0.223317, -0.0193862, 0.845836, -0.533091, -0.252099, -0.520099, -0.816053, -1.88144, 3.51506, -2.78737 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape" type="CollisionShape" parent="BouncingLaser/Box2"]
+[node name="CollisionShape" type="CollisionShape" parent="Box2"]
 transform = Transform( 1, 0, 3.72529e-09, -2.98023e-08, 1, -1.49012e-08, -3.72529e-09, -3.35276e-08, 1, 0, 0, 0 )
 shape = SubResource( 10 )
 
-[node name="MeshInstance" type="MeshInstance" parent="BouncingLaser/Box2"]
+[node name="MeshInstance" type="MeshInstance" parent="Box2"]
 transform = Transform( 0.25, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 mesh = SubResource( 11 )
 material/0 = null
