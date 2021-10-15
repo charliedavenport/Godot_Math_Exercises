@@ -25,9 +25,6 @@ func sfc_area(mi: MeshInstance) -> float:
 	arr_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, mi.mesh.get_mesh_arrays())
 	var mdt = MeshDataTool.new()
 	mdt.create_from_surface(arr_mesh, 0)
-#	print('faces: %s' % mdt.get_face_count())
-#	print('edges: %s' % mdt.get_edge_count())
-#	print('verts: %s' % mdt.get_vertex_count())
 	# calc
 	var sfc_area := 0.0
 	for i in range(mdt.get_face_count()):
