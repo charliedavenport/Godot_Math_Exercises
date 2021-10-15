@@ -63,7 +63,7 @@ startThickness = 0.025
 endThickness = 0.025
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.28731, 0.460533, -0.839859, 0, 0.876828, 0.480805, 0.957838, 0.13814, -0.251921, -6.10646, 5.69187, -2.90736 )
+transform = Transform( -0.28731, 0.460533, -0.839859, 0, 0.876828, 0.480805, 0.957838, 0.13814, -0.251921, -4.22736, 4.13162, -6.80513 )
 
 [node name="Sphere" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0191178, 0, 0 )
