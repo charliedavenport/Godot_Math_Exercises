@@ -1,24 +1,44 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Lecture2/Torb.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Lecture2/Turret.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Lecture2/TorbTurret.gd" type="Script" id=3]
 
 [sub_resource type="SphereShape" id=1]
 
 [sub_resource type="SphereMesh" id=2]
 
-[sub_resource type="PlaneMesh" id=3]
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.113725, 0.772549, 0.262745, 1 )
-
 [node name="TorbTurret" type="Spatial"]
+script = ExtResource( 3 )
 
 [node name="Torb" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 0.906816, -0.421527, 0, 0.421527, 0.906816, 0, 0.81669, -1.59344 )
+transform = Transform( 0.994365, 0.101404, -0.0308881, -0.105956, 0.959558, -0.260807, 0.00319217, 0.26261, 0.964896, 0.113663, 1.19207, -1.80585 )
+
+[node name="MeshInstance" parent="Torb" index="0"]
+transform = Transform( 0.35, 0, 0, 0, -1.5299e-08, -0.35, 0, 0.35, -1.5299e-08, 0, 0, 0 )
+
+[node name="CameraPivot" parent="Torb" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28558, -2.38419e-07 )
+
+[node name="ViewLine" parent="Torb" index="2"]
+points = [ Vector3( 0.142622, 1.4661, -1.73085 ), Vector3( -0.00317032, 0.235088, 2.82348 ) ]
+
+[node name="NormalLine" parent="Torb" index="3"]
+visible = true
+points = [ Vector3( -0.00317032, 0.235088, 2.82348 ), Vector3( -0.0020673, 1.09342, 2.3104 ) ]
+
+[node name="TangentLine" parent="Torb" index="4"]
+visible = true
+points = [ Vector3( -0.00317032, 0.235088, 2.82348 ), Vector3( -0.04647, 0.747734, 3.68099 ) ]
+
+[node name="Turret" parent="." instance=ExtResource( 2 )]
+transform = Transform( -0.999061, 0.00110301, -0.0432997, -0.0212706, 0.858336, 0.512646, -0.0377311, -0.513086, 0.857507, -0.00317032, 0.235088, 2.82348 )
 
 [node name="Surface" type="StaticBody" parent="."]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -10.0197, 0 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape" type="CollisionShape" parent="Surface"]
 shape = SubResource( 1 )
@@ -27,12 +47,20 @@ shape = SubResource( 1 )
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="Turret" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.784126, 1.06369 )
+[node name="Surface2" type="StaticBody" parent="."]
+transform = Transform( 6.15613, 0, 0, 0, 6.15613, 0, 0, 0, 6.15613, 0, -4.96522, 6.12219 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="ground" type="MeshInstance" parent="."]
-transform = Transform( 299.42, 0, 0, 0, 1, 0, 0, 0, 299.42, 0, -7.03036, 0 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 4 )
+[node name="CollisionShape" type="CollisionShape" parent="Surface2"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Surface2"]
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.85326, 0, -0.521486, 0, 1, 0, 0.521486, 0, 0.85326, -5.24207, 1.68985, 2.05993 )
 
 [editable path="Torb"]

@@ -2,5 +2,4 @@
 
 [resource]
 resource_name = "TurretMat"
-albedo_color = Color( 0.47451, 0.47451, 0.47451, 1 )
-metallic = 1.0
+albedo_color = Color( 0.184314, 0.780392, 0.764706, 1 )

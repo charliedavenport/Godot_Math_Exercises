@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Lecture2/Torb.gd" type="Script" id=1]
 [ext_resource path="res://LineRenderer/LineRenderer.tscn" type="PackedScene" id=2]
@@ -13,9 +13,24 @@ emission_energy = 0.5
 emission_operator = 0
 emission_on_uv2 = false
 
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_unshaded = true
+albedo_color = Color( 0.203922, 1, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_unshaded = true
+albedo_color = Color( 0.054902, 0.607843, 1, 1 )
+
 [node name="Torb" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.523313, 0 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 0.35, 0, 0, 0, -1.5299e-08, 0.35, 0, -0.35, -1.5299e-08, 0, 0, 0 )
@@ -26,8 +41,14 @@ material/0 = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28558, 0 )
 
 [node name="ViewLine" parent="." instance=ExtResource( 2 )]
-points = [  ]
+material_override = SubResource( 5 )
+points = [ Vector3( 0, 0.808893, 0 ), Vector3( 0, 0.808893, 10 ) ]
 
 [node name="NormalLine" parent="." instance=ExtResource( 2 )]
+visible = false
+material_override = SubResource( 6 )
+points = [  ]
 
 [node name="TangentLine" parent="." instance=ExtResource( 2 )]
+visible = false
+material_override = SubResource( 7 )

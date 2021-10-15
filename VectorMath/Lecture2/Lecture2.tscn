@@ -7,10 +7,40 @@
 [node name="Lecture2" type="Spatial"]
 
 [node name="BouncingLaser" parent="." instance=ExtResource( 1 )]
-visible = false
+
+[node name="LaserLine" parent="BouncingLaser" index="1"]
+points = [ Vector3( -0.694224, 1.12449, -2.94356 ), Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 1.00051, 1.34543, -2.90182 ), Vector3( 0.94069, 3.15064, -1.328 ), Vector3( -1.77705, 3.34216, -2.20704 ), Vector3( 0.933788, 3.63532, -1.66661 ), Vector3( 0.995386, 2.04014, -3.78331 ), Vector3( -2.04632, 7.89131, -11.3007 ) ]
+
+[node name="NormalLine" parent="BouncingLaser" index="2"]
+points = [ Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 0.0739631, 0.790201, -1.84902 ) ]
+
+[node name="TangentLine" parent="BouncingLaser" index="3"]
+points = [ Vector3( 0.0269203, 0.410446, -0.925131 ), Vector3( 1.01745, 0.512173, -0.832882 ) ]
+
+[node name="Camera" parent="BouncingLaser" index="4"]
+transform = Transform( -0.28731, 0.460533, -0.839859, 0, 0.876828, 0.480805, 0.957838, 0.13814, -0.251921, -3.24799, 5.69187, -7.12867 )
 
 [node name="SurfaceArea" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.91924, 0, 0 )
-visible = false
 
 [node name="TorbTurret" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9074, 0, 0 )
+
+[node name="Torb" parent="TorbTurret" index="0"]
+transform = Transform( 0.92352, -0.227209, -0.309006, -0.0585921, 0.712621, -0.699098, 0.379046, 0.663737, 0.644808, 2.82615, 2.37636, -3.02427 )
+
+[node name="ViewLine" parent="TorbTurret/Torb" index="2"]
+points = [ Vector3( 15.6687, 2.57987, -2.83472 ), Vector3( 13.5491, -0.264668, 2.10556 ) ]
+
+[node name="NormalLine" parent="TorbTurret/Torb" index="3"]
+points = [ Vector3( 13.5491, -0.264668, 2.10556 ), Vector3( 13.6159, 0.712123, 2.30906 ) ]
+
+[node name="TangentLine" parent="TorbTurret/Torb" index="4"]
+points = [ Vector3( 13.5491, -0.264668, 2.10556 ), Vector3( 13.2041, -0.433435, 3.02886 ) ]
+
+[node name="Turret" parent="TorbTurret" index="1"]
+transform = Transform( -0.936219, 0.0668086, -0.345007, 0.131896, 0.976791, -0.168766, -0.325725, 0.203508, 0.923303, 0.641723, -0.264668, 2.10556 )
+
+[editable path="BouncingLaser"]
+[editable path="TorbTurret"]
+[editable path="TorbTurret/Torb"]
